@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">GiangLab4</string>
+    <string name="add_patient">Add Patient</string>
+    <string name="add_test">Add Test</string>
+    <string name="search_patient_id">Search by Patient ID</string>
+    <string name="department_filter">Filter by Department</string>
+    <string name="add_info">Add Information</string>
+    <string name="search_filter">Search and Filter</string>
+    <string-array name="departments">
+        <item>Audiology</item>
+        <item>Biochemical Genetics</item>
+        <item>Cardiology</item>
+        <item>Medicine</item>
+    </string-array>
+    <string name="select_department">Select Department</string>
+    <string name="select_patient">Select Patient</string>
+    <string name="new_test">New Test</string>
+    <string name="new_patient">New Patient</string>
+    <string name="all_patients">All Patients</string>
+    <string name="my_patients">My Patients</string>
 </resources>

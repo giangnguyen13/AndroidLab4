@@ -8,8 +8,10 @@
     </style>
 
     <style name="btn_primary" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:background">@color/primary</item>
+        <item name="android:background">@color/fab_background</item>
         <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/merriweather</item>
+        <item name="android:textSize">@dimen/mediun_text</item>
     </style>
 
     <style name="btn_info" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -35,6 +37,12 @@
     <style name="btn_warning" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:background">@color/warning</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="main_text" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:fontFamily">@font/merriweather</item>
+        <item name="android:textSize">@dimen/large_text</item>
     </style>
 
 </resources>
