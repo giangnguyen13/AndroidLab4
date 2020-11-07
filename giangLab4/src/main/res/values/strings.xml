@@ -18,4 +18,9 @@
     <string name="new_patient">New Patient</string>
     <string name="all_patients">All Patients</string>
     <string name="my_patients">My Patients</string>
+    <string name="first_name_label">First Name</string>
+    <string name="first_name_hint">Enter first name</string>
+    <string name="last_name_label">Last Name</string>
+    <string name="last_name_hint">Enter last name</string>
+    <string name="department_label">Select Department</string>
 </resources>

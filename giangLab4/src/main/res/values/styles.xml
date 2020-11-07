@@ -45,4 +45,10 @@
         <item name="android:textSize">@dimen/large_text</item>
     </style>
 
+    <style name="input_label" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:fontFamily">@font/merriweather</item>
+        <item name="android:textSize">@dimen/mediun_text</item>
+    </style>
+
 </resources>
