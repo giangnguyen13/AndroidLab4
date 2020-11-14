@@ -8,7 +8,14 @@
     <color name="black">#000000</color>
     <color name="blue">#0000FF</color>
     <color name="gray">	#DCDCDC</color>
+    <color name="light_gray">#929292</color>
     <color name="lightBlue">#add8e6</color>
+
+    <color name="toolbar_color">#83E4E1</color>
+    <color name="main_text_color">#4A4A4A</color>
+    <color name="fab_background">#004979</color>
+    <color name="fab_background_secondary">#F5A623</color>
+    <color name="fab_background_third">#50E3C2</color>
 
     <color name="success">#28a745</color>
     <color name="primary">#007bff</color>
