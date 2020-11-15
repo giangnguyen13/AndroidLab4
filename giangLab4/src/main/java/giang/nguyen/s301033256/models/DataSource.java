@@ -20,14 +20,14 @@ public class DataSource {
             SQLiteHelper.COLUMN_DEPARTMENT,
     };
 
-//    private String[] allColumnsTests = {
-//            SQLiteHelper.COLUMN_ID,
-//            SQLiteHelper.COLUMN_PATIENT_ID,
-//            SQLiteHelper.COLUMN_BLOOD_PRESSURE,
-//            SQLiteHelper.COLUMN_CHOLESTEROL,
-//            SQLiteHelper.COLUMN_TEMPERATURE,
-//            SQLiteHelper.COLUMN_TEST_DATE
-//    };
+    private String[] allColumnsTests = {
+            SQLiteHelper.COLUMN_ID,
+            SQLiteHelper.COLUMN_PATIENT_ID,
+            SQLiteHelper.COLUMN_BLOOD_PRESSURE,
+            SQLiteHelper.COLUMN_CHOLESTEROL,
+            SQLiteHelper.COLUMN_TEMPERATURE,
+            SQLiteHelper.COLUMN_TEST_DATE
+    };
 
     public DataSource(Context context) {
         dbHelper = new SQLiteHelper(context);
@@ -58,6 +58,25 @@ public class DataSource {
         return newPatient;
     }
 
+    public Test createTest(long patient_id,String bloodPressure,String cholesterol,String temperature,String testDate) {
+        ContentValues values = new ContentValues();
+        values.put(SQLiteHelper.COLUMN_PATIENT_ID, patient_id);
+        values.put(SQLiteHelper.COLUMN_BLOOD_PRESSURE, bloodPressure);
+        values.put(SQLiteHelper.COLUMN_CHOLESTEROL, cholesterol);
+        values.put(SQLiteHelper.COLUMN_TEMPERATURE, temperature);
+        values.put(SQLiteHelper.COLUMN_TEST_DATE, testDate);
+
+        long insertId = database.insert(SQLiteHelper.TABLE_TESTS, null,
+                values);
+        Cursor cursor = database.query(SQLiteHelper.TABLE_TESTS,
+                allColumnsTests, SQLiteHelper.COLUMN_ID + " = " + insertId, null,
+                null, null, null);
+        cursor.moveToFirst();
+        Test newTest = cursorToTest(cursor);
+        cursor.close();
+        return newTest;
+    }
+
     public void deletePatient(Patient patient) {
         long id = patient.getId();
         System.out.println("Comment deleted with id: " + id);
@@ -65,6 +84,16 @@ public class DataSource {
         //         + " = " + id, null);
 
         database.delete(SQLiteHelper.TABLE_PATIENTS, SQLiteHelper.COLUMN_ID + " = ?",
+                new String[] { String.valueOf(id) });
+    }
+
+    public void deleteTest(Test test) {
+        long id = test.getId();
+        System.out.println("Comment deleted with id: " + id);
+        // database.delete(MySQLiteHelper.TABLE_COMMENTS, MySQLiteHelper.COLUMN_ID
+        //         + " = " + id, null);
+
+        database.delete(SQLiteHelper.TABLE_TESTS, SQLiteHelper.COLUMN_ID + " = ?",
                 new String[] { String.valueOf(id) });
     }
 
@@ -85,22 +114,22 @@ public class DataSource {
         return comments;
     }
 
-//    public List<Test> getAllTests() {
-//        List<Test> tests = new ArrayList<Test>();
-//
-//        Cursor cursor = database.query(SQLiteHelper.TABLE_PATIENTS,
-//                allColumns, null, null, null, null, null);
-//
-//        cursor.moveToFirst();
-//        while (!cursor.isAfterLast()) {
-//            Patient patient = cursorToComment(cursor);
-//            tests.add(patient);
-//            cursor.moveToNext();
-//        }
-//        // make sure to close the cursor
-//        cursor.close();
-//        return tests;
-//    }
+    public List<Test> getAllTests() {
+        List<Test> tests = new ArrayList<Test>();
+
+        Cursor cursor = database.query(SQLiteHelper.TABLE_TESTS,
+                allColumnsTests, null, null, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Test test = cursorToTest(cursor);
+            tests.add(test);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return tests;
+    }
 
     private Patient cursorToComment(Cursor cursor) {
         Patient patient = new Patient();
@@ -111,5 +140,18 @@ public class DataSource {
         patient.setDepartment(cursor.getString(3));
 
         return patient;
+    }
+
+    private Test cursorToTest(Cursor cursor) {
+        Test test = new Test();
+
+        test.setId(cursor.getLong(0));
+        test.setPatient_id(cursor.getLong(1));
+        test.setBloodPressure(cursor.getString(2));
+        test.setCholesterol(cursor.getString(3));
+        test.setTemperature(cursor.getString(4));
+        test.setTestDate(cursor.getString(5));
+
+        return test;
     }
 }

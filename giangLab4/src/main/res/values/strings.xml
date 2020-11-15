@@ -23,4 +23,11 @@
     <string name="last_name_label">Last Name</string>
     <string name="last_name_hint">Enter last name</string>
     <string name="department_label">Select Department</string>
+    <string name="blood_pressure_negative">Negative</string>
+    <string name="blood_pressure_positive">Positive</string>
+    <string name="blood_pressure_label">Blood Pressure</string>
+    <string name="cholesterol_label">Cholesterol</string>
+    <string name="temperature_label">Temperature</string>
+    <string name="test_date_label">Test Date</string>
+
 </resources>

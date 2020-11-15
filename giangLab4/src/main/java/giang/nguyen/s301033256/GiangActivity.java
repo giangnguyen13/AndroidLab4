@@ -36,15 +36,24 @@ public class GiangActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+        Button goBtn2 = (Button)findViewById(R.id.button2);
+        goBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), NguyenAddTestActivity.class);
+                startActivity(startIntent);
+            }
+        });
     }
     protected void onResume() {
         datasource.open();
         super.onResume();
         List<Patient> values = datasource.getAllPatients();
         //Toast.makeText(getApplicationContext(),String.format("size is %d",values.size()), Toast.LENGTH_SHORT).show();
-        for (Patient p : values){
-            Toast.makeText(getApplicationContext(),p.getFullName(), Toast.LENGTH_SHORT).show();
-        }
+//        for (Patient p : values){
+//            Toast.makeText(getApplicationContext(),p.getFullName(), Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override
