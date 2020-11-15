@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.List;
 
 import giang.nguyen.s301033256.models.DataSource;
@@ -17,6 +20,10 @@ import giang.nguyen.s301033256.models.Patient;
 
 public class GiangActivity extends AppCompatActivity {
     private DataSource datasource;
+    FloatingActionButton fab;
+    FloatingActionButton addTestFab;
+    FloatingActionButton addPatientFab;
+    boolean visible_flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +35,17 @@ public class GiangActivity extends AppCompatActivity {
         List<Patient> values = datasource.getAllPatients();
         Toast.makeText(getApplicationContext(),String.format("size is %d",values.size()), Toast.LENGTH_SHORT).show();
 
-        Button goBtn = (Button)findViewById(R.id.button);
-        goBtn.setOnClickListener(new View.OnClickListener() {
+        fab = findViewById(R.id.giangFab);
+        addTestFab = findViewById(R.id.giangAddTestFab);
+        addPatientFab = findViewById(R.id.giangAddPatientFab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleFab(visible_flag);
+            }
+        });
+
+        addTestFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), NguyenAddPatientActivity.class);
@@ -37,8 +53,7 @@ public class GiangActivity extends AppCompatActivity {
             }
         });
 
-        Button goBtn2 = (Button)findViewById(R.id.button2);
-        goBtn2.setOnClickListener(new View.OnClickListener() {
+        addPatientFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), NguyenAddTestActivity.class);
@@ -49,6 +64,7 @@ public class GiangActivity extends AppCompatActivity {
     protected void onResume() {
         datasource.open();
         super.onResume();
+        toggleFab(true);
         List<Patient> values = datasource.getAllPatients();
         //Toast.makeText(getApplicationContext(),String.format("size is %d",values.size()), Toast.LENGTH_SHORT).show();
 //        for (Patient p : values){
@@ -60,5 +76,18 @@ public class GiangActivity extends AppCompatActivity {
     protected void onPause() {
         datasource.close();
         super.onPause();
+        toggleFab(true);
+    }
+
+    private void toggleFab(boolean visible){
+        if (visible){
+            addPatientFab.hide();
+            addTestFab.hide();
+            visible_flag = false;
+        }else{
+            addPatientFab.show();
+            addTestFab.show();
+            visible_flag = true;
+        }
     }
 }
