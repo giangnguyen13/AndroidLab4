@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/primary"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +41,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:visibility="invisible"
+        android:backgroundTint="@color/fab_background_secondary"
         app:layout_constraintBottom_toTopOf="@+id/giangAddTestFab"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_action_add_patient" />
@@ -51,6 +53,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:backgroundTint="@color/fab_background_third"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/giangFab"
         app:layout_constraintEnd_toEndOf="parent"

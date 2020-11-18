@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -34,9 +35,10 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
         }
-
-
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.departments));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         final Spinner departmentSpinner = (Spinner)findViewById(R.id.giangDepartmentSpinnerFilter);
+        departmentSpinner.setAdapter(adapter);
 
         Button searchByIDBtn = (Button)findViewById(R.id.giangSearchByIdBtn);
         Button filterByDepartmentBtn = (Button)findViewById(R.id.giangFilterDepartmentBtn);
@@ -47,7 +49,8 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
                 Patient storedPatient = null;
                 try {
                     storedPatient = datasource.getPatientByName(text_sel.getText().toString());
-                    Toast.makeText(getApplicationContext(),storedPatient.getFullName(),Toast.LENGTH_SHORT).show();
+                    setContentView(R.layout.activity_search_patient_result);
+                    addPatientToLayout(storedPatient);
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
                 }
@@ -134,7 +137,7 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
 //                Intent startIntent = new Intent(getApplicationContext(), GiangViewTestActivity.class);
 //                startIntent.putExtra("patientID", patient.getId());
 //                startActivity(startIntent);
-                Intent startIntent = new Intent(getApplicationContext(), GiangViewTestActivity.class);
+                Intent startIntent = new Intent(getApplicationContext(), NguyenViewTestActivity.class);
                 startIntent.putExtra("patientID",String.format("%d",patient.getId()));
                 startActivity(startIntent);
                 //Toast.makeText(getApplicationContext(),String.format("id#%d",patient.getId()),Toast.LENGTH_LONG).show();

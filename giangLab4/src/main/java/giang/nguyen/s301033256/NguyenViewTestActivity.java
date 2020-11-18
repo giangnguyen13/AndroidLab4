@@ -28,7 +28,7 @@ import giang.nguyen.s301033256.models.DataSource;
 import giang.nguyen.s301033256.models.Patient;
 import giang.nguyen.s301033256.models.Test;
 
-public class GiangViewTestActivity extends AppCompatActivity {
+public class NguyenViewTestActivity extends AppCompatActivity {
     private DataSource datasource;
     List<Test> tests;
     @Override

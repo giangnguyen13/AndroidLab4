@@ -58,7 +58,7 @@ public class GiangActivity extends AppCompatActivity {
         addTestFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), NguyenAddPatientActivity.class);
+                Intent startIntent = new Intent(getApplicationContext(), NguyenAddTestActivity.class);
                 startActivity(startIntent);
             }
         });
@@ -66,7 +66,7 @@ public class GiangActivity extends AppCompatActivity {
         addPatientFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), NguyenAddTestActivity.class);
+                Intent startIntent = new Intent(getApplicationContext(), NguyenAddPatientActivity.class);
                 startActivity(startIntent);
             }
         });

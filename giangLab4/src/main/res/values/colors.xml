@@ -23,4 +23,7 @@
     <color name="danger">#dc3545</color>
     <color name="warning">#ffc107</color>
     <color name="info">#17a2b8</color>
+
+    <color name="light_dark_green">#03dac3</color>
+    <color name="light_pink">#FFB6C1</color>
 </resources>

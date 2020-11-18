@@ -23,9 +23,11 @@ public class SQLiteHelper extends SQLiteOpenHelper{
     //public static final String COLUMN_ID = "id";
     public static final String COLUMN_PATIENT_ID = "patient_id";
     public static final String COLUMN_BLOOD_PRESSURE = "blood_pressure";
-    public static final String COLUMN_CHOLESTEROL = "cholesterol";
-    public static final String COLUMN_TEMPERATURE = "temperature";
+    public static final String COLUMN_CHOLESTEROL = "cholesterol"; //respiratory
+    public static final String COLUMN_TEMPERATURE = "temperature"; //bloodOxygen
     public static final String COLUMN_TEST_DATE = "test_date";
+    public static final String COLUMN_HEART_BEAT_RATE = "heart_beat_rate";
+    public static final String COLUMN_COVID = "covid";
 
     private static final String DATABASE_NAME = "lab4.db";
     private static final int DATABASE_VERSION = 1;
@@ -53,6 +55,8 @@ public class SQLiteHelper extends SQLiteOpenHelper{
                     "    %s TEXT,\n" +
                     "    %s TEXT,\n" +
                     "    %s TEXT,\n" +
+                    "    %s TEXT,\n" +
+                    "    %s TEXT,\n" +
                     "    %s TEXT\n" +
                     ");",
             TABLE_TESTS,
@@ -61,7 +65,9 @@ public class SQLiteHelper extends SQLiteOpenHelper{
             COLUMN_BLOOD_PRESSURE,
             COLUMN_CHOLESTEROL,
             COLUMN_TEMPERATURE,
-            COLUMN_TEST_DATE
+            COLUMN_TEST_DATE,
+            COLUMN_HEART_BEAT_RATE,
+            COLUMN_COVID
     );
 
     public SQLiteHelper(Context context) {

@@ -27,7 +27,9 @@ public class DataSource {
             SQLiteHelper.COLUMN_BLOOD_PRESSURE,
             SQLiteHelper.COLUMN_CHOLESTEROL,
             SQLiteHelper.COLUMN_TEMPERATURE,
-            SQLiteHelper.COLUMN_TEST_DATE
+            SQLiteHelper.COLUMN_TEST_DATE,
+            SQLiteHelper.COLUMN_HEART_BEAT_RATE,
+            SQLiteHelper.COLUMN_COVID,
     };
 
     public DataSource(Context context) {
@@ -79,13 +81,15 @@ public class DataSource {
 //        return patient;
 //    }
 
-    public Test createTest(long patient_id,String bloodPressure,String cholesterol,String temperature,String testDate) {
+    public Test createTest(long patient_id,String bloodPressure,String respiratory,String bloodOxygen,String testDate,String heartBeatRate,String covid) {
         ContentValues values = new ContentValues();
         values.put(SQLiteHelper.COLUMN_PATIENT_ID, patient_id);
         values.put(SQLiteHelper.COLUMN_BLOOD_PRESSURE, bloodPressure);
-        values.put(SQLiteHelper.COLUMN_CHOLESTEROL, cholesterol);
-        values.put(SQLiteHelper.COLUMN_TEMPERATURE, temperature);
+        values.put(SQLiteHelper.COLUMN_CHOLESTEROL, respiratory);
+        values.put(SQLiteHelper.COLUMN_TEMPERATURE, bloodOxygen);
         values.put(SQLiteHelper.COLUMN_TEST_DATE, testDate);
+        values.put(SQLiteHelper.COLUMN_HEART_BEAT_RATE, heartBeatRate);
+        values.put(SQLiteHelper.COLUMN_COVID, covid);
 
         long insertId = database.insert(SQLiteHelper.TABLE_TESTS, null,
                 values);
@@ -187,6 +191,8 @@ public class DataSource {
         test.setCholesterol(cursor.getString(3));
         test.setTemperature(cursor.getString(4));
         test.setTestDate(cursor.getString(5));
+        test.setHeartBeatRate(cursor.getString(6));
+        test.setCovid(cursor.getString(7));
 
         return test;
     }

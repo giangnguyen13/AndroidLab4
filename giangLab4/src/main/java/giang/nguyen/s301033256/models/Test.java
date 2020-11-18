@@ -6,9 +6,11 @@ public class Test {
     private long id;
     private long patient_id;
     private String bloodPressure;
-    private String cholesterol;
-    private String temperature;
+    private String cholesterol; //respiratory
+    private String temperature; //bloodOxygen
+    private String heartBeatRate;
     private String testDate;
+    private String covid;
 
     public long getId() {
         return id;
@@ -56,6 +58,22 @@ public class Test {
 
     public void setTestDate(String testDate) {
         this.testDate = testDate;
+    }
+
+    public String getHeartBeatRate() {
+        return heartBeatRate;
+    }
+
+    public void setHeartBeatRate(String heartBeatRate) {
+        this.heartBeatRate = heartBeatRate;
+    }
+
+    public String getCovid() {
+        return covid;
+    }
+
+    public void setCovid(String covid) {
+        this.covid = covid;
     }
 
     @Override

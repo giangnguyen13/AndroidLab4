@@ -29,10 +29,12 @@ import giang.nguyen.s301033256.models.Test;
 public class NguyenAddTestActivity extends AppCompatActivity {
     private DataSource datasource;
     private RadioButton radioButton;
+    private RadioButton radioButton2;
     DatePickerDialog picker;
     EditText datePicker;
-    EditText cholesterolInput;
-    EditText temperatureInput;
+    EditText respiratoryInput;
+    EditText bloodOxygenInput;
+    EditText heartBeatRateInput;
     List<Patient> patients;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,9 @@ public class NguyenAddTestActivity extends AppCompatActivity {
         selectPatient.setAdapter(adapter);
 
         datePicker = (EditText) findViewById(R.id.giangTestDate);
-        cholesterolInput = (EditText) findViewById(R.id.giangCholesterolInput);
-        temperatureInput = (EditText) findViewById(R.id.giangTemperatureInput);
+        respiratoryInput = (EditText) findViewById(R.id.giangCholesterolInput);
+        bloodOxygenInput = (EditText) findViewById(R.id.giangTemperatureInput);
+        heartBeatRateInput = (EditText) findViewById(R.id.giangHeartBeatRate);
 
         datePicker.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -83,27 +86,33 @@ public class NguyenAddTestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Test newTest = null;
                 RadioGroup bloodPressureRadio = (RadioGroup)findViewById(R.id.giangBloodPressureRadio);
+                RadioGroup covidRadio = (RadioGroup)findViewById(R.id.giangCovidRadio);
 
                 int selectedId = bloodPressureRadio.getCheckedRadioButtonId();
+                int selectedId2 = covidRadio.getCheckedRadioButtonId();
 
                 // find the radiobutton by returned id
                 radioButton = (RadioButton)findViewById(selectedId);
+                radioButton2 = (RadioButton)findViewById(selectedId2);
 
                 Toast.makeText(NguyenAddTestActivity.this,
                         radioButton.getText(), Toast.LENGTH_SHORT).show();
 
-                String cholesterol = cholesterolInput.getText().toString();
-                String temperature = temperatureInput.getText().toString();
+                String respiratory = respiratoryInput.getText().toString();
+                String bloodOxygen = bloodOxygenInput.getText().toString();
+                String heartBeatRate = heartBeatRateInput.getText().toString();
                 String testDate = datePicker.getText().toString();
                 String bloodPressure = radioButton.getText().toString();
+                String covid = radioButton2.getText().toString();
 
-                String info = String.format("%s %s %s %s",bloodPressure,cholesterol,temperature,testDate);
+
+                String info = String.format("%s %s %s %s %s %s",bloodPressure,respiratory,bloodOxygen,testDate,covid,heartBeatRate);
                 Patient patient = (Patient)selectPatient.getSelectedItem();
 
 
                 try{
-                    newTest = datasource.createTest(patient.getId(),bloodPressure,cholesterol,temperature,testDate);
-                    Toast.makeText(getApplicationContext(),String.format("Create success, Test ID#%d, Patient ID#%d",newTest.getId(),patient.getId()), Toast.LENGTH_SHORT).show();
+                    newTest = datasource.createTest(patient.getId(),bloodPressure,respiratory,bloodOxygen,testDate,heartBeatRate,covid);
+                    Toast.makeText(getApplicationContext(),String.format("Create success, Test ID#%d,HEART %s, COVID %s",newTest.getId(),newTest.getHeartBeatRate(),newTest.getCovid()), Toast.LENGTH_SHORT).show();
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();
                 }
