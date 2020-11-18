@@ -98,15 +98,18 @@ public class GiangViewTestActivity extends AppCompatActivity {
         final EditText datePicker = (EditText) findViewById(R.id.giangTestDate);
         final EditText cholesterolInput = (EditText) findViewById(R.id.giangCholesterolInput);
         final EditText temperatureInput = (EditText) findViewById(R.id.giangTemperatureInput);
+        final EditText heartRateInput = (EditText) findViewById(R.id.giangHeartBeatRate);
 
         datePicker.setText(test.getTestDate());
         cholesterolInput.setText(test.getCholesterol());
         temperatureInput.setText(test.getTemperature());
+        heartRateInput.setText(test.getHeartBeatRate());
 
         //disable input type
         datePicker.setInputType(InputType.TYPE_NULL);
         cholesterolInput.setInputType(InputType.TYPE_NULL);
         temperatureInput.setInputType(InputType.TYPE_NULL);
+        heartRateInput.setInputType(InputType.TYPE_NULL);
 
         RadioGroup radioGroup = (RadioGroup)findViewById(R.id.giangBloodPressureRadio);
 
@@ -116,6 +119,18 @@ public class GiangViewTestActivity extends AppCompatActivity {
                 ((RadioButton)radioGroup.getChildAt(0)).setChecked(true);
             }else {
                 ((RadioButton)radioGroup.getChildAt(1)).setChecked(true);
+            }
+
+        }
+
+        RadioGroup radioGroupCovid = (RadioGroup)findViewById(R.id.giangCovidRadio);
+
+        for (int i = 0; i < radioGroup.getChildCount(); i++) {
+            radioGroupCovid.getChildAt(i).setEnabled(false);
+            if ("Positive".equals(test.getCovid())){
+                ((RadioButton)radioGroupCovid.getChildAt(0)).setChecked(true);
+            }else {
+                ((RadioButton)radioGroupCovid.getChildAt(1)).setChecked(true);
             }
 
         }
