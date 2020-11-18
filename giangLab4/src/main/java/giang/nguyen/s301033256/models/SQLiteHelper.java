@@ -16,6 +16,7 @@ public class SQLiteHelper extends SQLiteOpenHelper{
     public static final String COLUMN_FIRSTNAME = "firstname";
     public static final String COLUMN_LASTNAME = "lastname";
     public static final String COLUMN_DEPARTMENT = "department";
+    public static final String COLUMN_GENDER = "gender";
 
     //-- TEST TABLE --//
     public static final String TABLE_TESTS = "tests";
@@ -34,13 +35,15 @@ public class SQLiteHelper extends SQLiteOpenHelper{
                     "    %s INTEGER primary key autoincrement,\n" +
                     "    %s TEXT,\n" +
                     "    %s TEXT,\n" +
+                    "    %s TEXT,\n" +
                     "    %s TEXT\n" +
                     ");",
             TABLE_PATIENTS,
             COLUMN_ID,
             COLUMN_FIRSTNAME,
             COLUMN_LASTNAME,
-            COLUMN_DEPARTMENT
+            COLUMN_DEPARTMENT,
+            COLUMN_GENDER
     );
 
     private static final String DATABASE_CREATE_TESTS = String.format(
@@ -127,6 +130,7 @@ public class SQLiteHelper extends SQLiteOpenHelper{
         patient.setFirstName(cursor.getString(1));
         patient.setLastName(cursor.getString(2));
         patient.setDepartment(cursor.getString(3));
+        patient.setGender(cursor.getString(4));
 
         return patient;
     }

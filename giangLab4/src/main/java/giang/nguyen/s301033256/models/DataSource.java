@@ -18,6 +18,7 @@ public class DataSource {
             SQLiteHelper.COLUMN_FIRSTNAME,
             SQLiteHelper.COLUMN_LASTNAME,
             SQLiteHelper.COLUMN_DEPARTMENT,
+            SQLiteHelper.COLUMN_GENDER,
     };
 
     private String[] allColumnsTests = {
@@ -35,17 +36,19 @@ public class DataSource {
 
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
+        //dbHelper.onUpgrade(database,1,2);
     }
 
     public void close() {
         dbHelper.close();
     }
 
-    public Patient createPatient(String firstname,String lastname,String department) {
+    public Patient createPatient(String firstname,String lastname,String department, String gender) {
         ContentValues values = new ContentValues();
         values.put(SQLiteHelper.COLUMN_FIRSTNAME, firstname);
         values.put(SQLiteHelper.COLUMN_LASTNAME, lastname);
         values.put(SQLiteHelper.COLUMN_DEPARTMENT, department);
+        values.put(SQLiteHelper.COLUMN_GENDER, gender);
 
         long insertId = database.insert(SQLiteHelper.TABLE_PATIENTS, null,
                 values);
@@ -170,6 +173,7 @@ public class DataSource {
         patient.setFirstName(cursor.getString(1));
         patient.setLastName(cursor.getString(2));
         patient.setDepartment(cursor.getString(3));
+        patient.setGender(cursor.getString(4));
 
         return patient;
     }

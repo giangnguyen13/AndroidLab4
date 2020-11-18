@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,15 +44,20 @@ public class NguyenAddPatientActivity extends AppCompatActivity {
                 TextView firstNameTv = (TextView)findViewById(R.id.giangFirstNameInput);
                 TextView lastNameTv = (TextView)findViewById(R.id.giangLastNameInput);
                 TextView text_sel = (TextView)departmentSpinner.getSelectedView();
+                RadioGroup genderRadioGroup = (RadioGroup)findViewById(R.id.giangGenderRadioGroup);
+                int selectedId = genderRadioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = (RadioButton)findViewById(selectedId);
+
                 String firstName = firstNameTv.getText().toString();
                 String lastName = lastNameTv.getText().toString();
                 String department = text_sel.getText().toString();
+                String gender = radioButton.getText().toString();
 
                 String info = String.format("%s %s %s",firstName,lastName,department);
 
-                //newPatient = datasource.createPatient(firstName,lastName,department);
+
                 try{
-                    newPatient = datasource.createPatient(firstName,lastName,department);
+                    newPatient = datasource.createPatient(firstName,lastName,department,gender);
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();
                 }

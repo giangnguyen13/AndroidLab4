@@ -31,13 +31,19 @@ public class GiangActivity extends AppCompatActivity {
     FloatingActionButton addPatientFab;
     boolean visible_flag = false;
     List<Patient> values;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         datasource = new DataSource(this);
-        datasource.open();
+        try {
+            datasource.open();
+        }catch (Exception e){
+            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
+        }
+
 
         fab = findViewById(R.id.giangFab);
         addTestFab = findViewById(R.id.giangAddTestFab);
@@ -64,15 +70,13 @@ public class GiangActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
-        values = datasource.getAllPatients();
-        loadPatients(values);
     }
     protected void onResume() {
         datasource.open();
         super.onResume();
         toggleFab(true);
-        //values = datasource.getAllPatients();
-        //loadPatients(values);
+        values = datasource.getAllPatients();
+        loadPatients(values);
     }
 
     @Override
@@ -115,17 +119,23 @@ public class GiangActivity extends AppCompatActivity {
     }
 
     private void loadPatients(List<Patient> patients){
+        linearLayout = findViewById(R.id.giangPatientListLinearLayout);
+        linearLayout.removeAllViews();
         for(Patient p : patients){
             addPatientToLayout(p);
         }
     }
 
     private void addPatientToLayout(Patient patient) {
-        LinearLayout linearLayout = findViewById(R.id.giangPatientListLinearLayout);
+        linearLayout = findViewById(R.id.giangPatientListLinearLayout);
         TextView name = new TextView(this);
-        name.setText(patient.getFullName());
+        name.setText("Name:   "+patient.getFullName());
         name.setTextColor(getResources().getColor(R.color.main_text_color));
         name.setTextSize(getResources().getDimension(R.dimen.very_small_text));
+        TextView gender = new TextView(this);
+        gender.setText("Gender: "+patient.getGender());
+        gender.setTextColor(getResources().getColor(R.color.main_text_color));
+        gender.setTextSize(getResources().getDimension(R.dimen.very_small_text));
         TextView department = new TextView(this);
         department.setText(patient.getDepartment());
         department.setTextColor(getResources().getColor(R.color.white));
@@ -140,6 +150,7 @@ public class GiangActivity extends AppCompatActivity {
         v.setBackgroundColor(getResources().getColor(R.color.black));
 
         linearLayout.addView(name);
+        linearLayout.addView(gender);
         linearLayout.addView(department);
         linearLayout.addView(v);
     }

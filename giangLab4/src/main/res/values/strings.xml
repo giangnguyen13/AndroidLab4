@@ -30,5 +30,8 @@
     <string name="temperature_label">Temperature</string>
     <string name="test_date_label">Test Date</string>
     <string name="patient_search_id_hint">Enter patient ID</string>
+    <string name="gender_label">Select Gender</string>
+    <string name="gender_opt_male">Male</string>
+    <string name="gender_opt_female">Female</string>
 
 </resources>
