@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 //import android.icu.util.Calendar;
 import java.util.Calendar;
+
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
@@ -112,7 +114,8 @@ public class NguyenAddTestActivity extends AppCompatActivity {
 
                 try{
                     newTest = datasource.createTest(patient.getId(),bloodPressure,respiratory,bloodOxygen,testDate,heartBeatRate,covid);
-                    Toast.makeText(getApplicationContext(),String.format("Create success, Test ID#%d,HEART %s, COVID %s",newTest.getId(),newTest.getHeartBeatRate(),newTest.getCovid()), Toast.LENGTH_SHORT).show();
+                    Intent startIntent = new Intent(getApplicationContext(), GiangActivity.class);
+                    startActivity(startIntent);
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();
                 }

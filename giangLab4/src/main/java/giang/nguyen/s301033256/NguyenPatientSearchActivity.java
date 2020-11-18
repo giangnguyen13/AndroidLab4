@@ -70,7 +70,6 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
                     setContentView(R.layout.activity_search_patient_result);
                     for(Patient p : patients){
                         addPatientToLayout(p);
-                        //Toast.makeText(getApplicationContext(),String.format(p.getFullName()),Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
@@ -95,6 +94,14 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        // TODO Auto-generated method stub
+        // do your stuff  here
+        super.onBackPressed();
+        //Toast.makeText(getApplicationContext(),"BACK BTN CLICK",Toast.LENGTH_SHORT).show();
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -134,13 +141,8 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent startIntent = new Intent(getApplicationContext(), GiangViewTestActivity.class);
-//                startIntent.putExtra("patientID", patient.getId());
-//                startActivity(startIntent);
                 Intent startIntent = new Intent(getApplicationContext(), NguyenViewTestActivity.class);
-                startIntent.putExtra("patientID",String.format("%d",patient.getId()));
                 startActivity(startIntent);
-                //Toast.makeText(getApplicationContext(),String.format("id#%d",patient.getId()),Toast.LENGTH_LONG).show();
             }
         });
     }
