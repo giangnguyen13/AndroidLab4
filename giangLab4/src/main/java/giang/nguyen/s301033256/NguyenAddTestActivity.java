@@ -118,11 +118,11 @@ public class NguyenAddTestActivity extends AppCompatActivity {
         datasource.open();
         super.onResume();
         try{
-            List<Test> values = datasource.getAllTests();
-            for (Test t : values){
-                String testInfo = String.format("Test#%d Patient #%d %s",t.getId(),t.getPatient_id(),t.getCholesterol());
-                //Toast.makeText(getApplicationContext(),testInfo, Toast.LENGTH_SHORT).show();
-            }
+//            List<Test> values = datasource.getAllTests();
+//            for (Test t : values){
+//                String testInfo = String.format("Test#%d Patient #%d %s",t.getId(),t.getPatient_id(),t.getCholesterol());
+//                //Toast.makeText(getApplicationContext(),testInfo, Toast.LENGTH_SHORT).show();
+//            }
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();
         }

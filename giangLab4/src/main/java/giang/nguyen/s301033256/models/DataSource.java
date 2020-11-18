@@ -58,6 +58,24 @@ public class DataSource {
         return newPatient;
     }
 
+//    public Patient getPatientByName(String fullName){
+//        final Cursor cursor = database.rawQuery("SELECT * " +
+//                "FROM patients " +
+//                "where "+SQLiteHelper.COLUMN_FIRSTNAME+" like '%"+fullName+"%' AND " +
+//                SQLiteHelper.COLUMN_LASTNAME+ " like '%"+fullName+"%';", null);
+//        Patient patient = null;
+//        if (cursor != null) {
+//            try {
+//                if (cursor.moveToFirst()) {
+//                    patient = cursorToComment(cursor);
+//                }
+//            } finally {
+//                cursor.close();
+//            }
+//        }
+//        return patient;
+//    }
+
     public Test createTest(long patient_id,String bloodPressure,String cholesterol,String temperature,String testDate) {
         ContentValues values = new ContentValues();
         values.put(SQLiteHelper.COLUMN_PATIENT_ID, patient_id);
@@ -75,6 +93,16 @@ public class DataSource {
         Test newTest = cursorToTest(cursor);
         cursor.close();
         return newTest;
+    }
+
+    public Patient getPatientByName(String id) throws Exception{
+        Patient storedPatient = dbHelper.getPatientById(String.valueOf(id));
+        return storedPatient;
+    }
+
+    public List<Patient> getPatientByDepartment(String department) throws Exception{
+        List<Patient> patients = dbHelper.getPatientByDepartment(department);
+        return patients;
     }
 
     public void deletePatient(Patient patient) {
@@ -114,11 +142,15 @@ public class DataSource {
         return comments;
     }
 
-    public List<Test> getAllTests() {
+    public List<Test> getAllTestsFromPatients(String patientID) {
         List<Test> tests = new ArrayList<Test>();
 
-        Cursor cursor = database.query(SQLiteHelper.TABLE_TESTS,
-                allColumnsTests, null, null, null, null, null);
+//        Cursor cursor = database.query(SQLiteHelper.TABLE_TESTS,
+//                allColumnsTests, null, null, null, null, null);
+
+        Cursor cursor = database.rawQuery(
+                "select * from "+SQLiteHelper.TABLE_TESTS+" where "+SQLiteHelper.COLUMN_PATIENT_ID+" = '"+String.valueOf(patientID)+"';"
+        ,null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

@@ -29,5 +29,6 @@
     <string name="cholesterol_label">Cholesterol</string>
     <string name="temperature_label">Temperature</string>
     <string name="test_date_label">Test Date</string>
+    <string name="patient_search_id_hint">Enter patient ID</string>
 
 </resources>

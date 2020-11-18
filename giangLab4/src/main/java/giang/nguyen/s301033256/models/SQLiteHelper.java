@@ -1,9 +1,13 @@
 package giang.nguyen.s301033256.models;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLiteHelper extends SQLiteOpenHelper{
     //-- PATIENTS TABLE --//
@@ -75,5 +79,55 @@ public class SQLiteHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PATIENTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TESTS);
         onCreate(db);
+    }
+
+    public Patient getPatientById(String patientID) throws Exception{
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor =  db.rawQuery( "select * from " + TABLE_PATIENTS + " where "+ COLUMN_ID + " = "+String.valueOf(patientID)+";", null );
+        Patient patient = new Patient(); //create a new Student object
+        if (cursor.moveToFirst()) { //if row exists
+            cursor.moveToFirst(); //move to first row
+            //initialize the instance variables of task object
+            patient.setId(cursor.getInt(0));
+            patient.setFirstName(cursor.getString(1));
+            patient.setLastName(cursor.getString(2));
+            patient.setDepartment(cursor.getString(3));
+
+            cursor.close();
+
+        } else {
+            patient = null;
+        }
+        db.close();
+        return patient;
+    }
+
+    public List<Patient> getPatientByDepartment(String department) throws Exception{
+        List<Patient> patients = new ArrayList<Patient>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor =  db.rawQuery( "select * from " + TABLE_PATIENTS + " where "+ COLUMN_DEPARTMENT + " LIKE '%"+department+"%';", null );
+        Patient patient = new Patient();
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            patient = cursorToComment(cursor);
+            patients.add(patient);
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        db.close();
+        return patients;
+    }
+
+    private Patient cursorToComment(Cursor cursor) {
+        Patient patient = new Patient();
+
+        patient.setId(cursor.getLong(0));
+        patient.setFirstName(cursor.getString(1));
+        patient.setLastName(cursor.getString(2));
+        patient.setDepartment(cursor.getString(3));
+
+        return patient;
     }
 }
