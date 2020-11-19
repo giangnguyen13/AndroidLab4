@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    /**-->
+    <!--    * Giang Nguyen-->
+    <!--    * Student# 301033256-->
+    <!--    * COMP304 002-->
+    <!--    * Professor: Haki Sharifi-->
+    <!--    * */-->
+    <string name="app_name">GiangLab4</string>
+    <string name="add_patient">Ajouter un patient</string>
+    <string name="add_test">Ajouter un test</string>
+    <string name="search_patient_id">Recherche par ID patient</string>
+    <string name="department_filter">Filtrer par département</string>
+    <string name="add_info">Ajouter des informations</string>
+    <string name="search_filter">Rechercher et filtrer</string>
+    <string name="select_department">Sélectionnez un département</string>
+    <string name="select_patient">Sélectionnez un patient</string>
+    <string name="new_test">Nouveau test</string>
+    <string name="new_patient">Nouveau patient</string>
+    <string name="all_patients">Voir tous les patients</string>
+    <string name="my_patients">Mes patients</string>
+    <string name="first_name_label">Prénom</string>
+    <string name="first_name_hint">entrez votre prénom</string>
+    <string name="last_name_label">Nom de famille</string>
+    <string name="last_name_hint">Entrer le nom de famille</string>
+    <string name="department_label">Sélectionnez un département</string>
+    <string name="blood_pressure_negative">Négative</string>
+    <string name="blood_pressure_positive">Positive</string>
+    <string name="blood_pressure_label">Pression artérielle</string>
+    <string name="cholesterol_label">Fréquence respiratoire</string>
+    <string name="temperature_label">Niveau d\'oxygène dans le sang</string>
+    <string name="test_date_label">Date du test</string>
+    <string name="patient_search_id_hint">Entrez l\'ID du patient</string>
+    <string name="gender_label">Sélectionnez le sexe</string>
+    <string name="gender_opt_male">Femelle</string>
+    <string name="gender_opt_female">Femme</string>
+    <string name="heart_beat_rate_label">Fréquence cardiaque</string>
+</resources>

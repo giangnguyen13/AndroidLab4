@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    /**-->
+<!--    * Giang Nguyen-->
+<!--    * Student# 301033256-->
+<!--    * COMP304 002-->
+<!--    * Professor: Haki Sharifi-->
+<!--    * */-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NguyenViewPatientsActivity">
+
+    <Button
+        android:id="@+id/giangViewAllPatientsBtn"
+        style="@style/btn_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/all_patients"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/giangImageView" />
+
+    <Button
+        android:id="@+id/giangCreateNewTestBtn"
+        style="@style/btn_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/add_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/giangViewAllPatientsBtn" />
+
+    <Button
+        android:id="@+id/giangCreateNewPatientBtn"
+        style="@style/btn_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/add_patient"
+        app:layout_constraintEnd_toEndOf="@+id/giangCreateNewTestBtn"
+        app:layout_constraintStart_toStartOf="@+id/giangCreateNewTestBtn"
+        app:layout_constraintTop_toBottomOf="@+id/giangCreateNewTestBtn" />
+
+    <ImageView
+        android:id="@+id/giangImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/smh_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
