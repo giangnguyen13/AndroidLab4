@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/add_patient"
+        android:text="@string/add_test"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/add_test"
+        android:text="@string/add_patient"
         app:layout_constraintEnd_toEndOf="@+id/giangCreateNewTestBtn"
         app:layout_constraintStart_toStartOf="@+id/giangCreateNewTestBtn"
         app:layout_constraintTop_toBottomOf="@+id/giangCreateNewTestBtn" />

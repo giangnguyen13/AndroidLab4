@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GiangLab4</string>
+    <string name="app_name" translatable="false">GiangLab4</string>
     <string name="add_patient">Add Patient</string>
     <string name="add_test">Add Test</string>
     <string name="search_patient_id">Search by Patient ID</string>
@@ -33,7 +33,7 @@
     <string name="gender_label">Select Gender</string>
     <string name="gender_opt_male">Male</string>
     <string name="gender_opt_female">Female</string>
-    <string name="covid_label">Covid-19</string>
+    <string name="covid_label" translatable="false">Covid-19</string>
     <string name="heart_beat_rate_label">Heart Beat Rate</string>
 
 </resources>
