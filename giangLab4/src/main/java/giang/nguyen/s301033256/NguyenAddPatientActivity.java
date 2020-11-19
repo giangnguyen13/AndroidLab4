@@ -20,7 +20,12 @@ import android.widget.Toast;
 
 import giang.nguyen.s301033256.models.DataSource;
 import giang.nguyen.s301033256.models.Patient;
-
+/**
+ * Giang Nguyen
+ * Student# 301033256
+ * COMP304 002
+ * Professor: Haki Sharifi
+ * */
 public class NguyenAddPatientActivity extends AppCompatActivity {
     private DataSource datasource;
     TextView firstNameTv;

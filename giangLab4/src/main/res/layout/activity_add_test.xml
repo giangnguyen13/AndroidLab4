@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--    /**-->
+<!--    * Giang Nguyen-->
+<!--    * Student# 301033256-->
+<!--    * COMP304 002-->
+<!--    * Professor: Haki Sharifi-->
+<!--    * */-->
 <ScrollView
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"

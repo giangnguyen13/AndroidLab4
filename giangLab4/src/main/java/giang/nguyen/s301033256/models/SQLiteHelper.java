@@ -8,7 +8,12 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Giang Nguyen
+ * Student# 301033256
+ * COMP304 002
+ * Professor: Haki Sharifi
+ * */
 public class SQLiteHelper extends SQLiteOpenHelper{
     //-- PATIENTS TABLE --//
     public static final String TABLE_PATIENTS = "patients";

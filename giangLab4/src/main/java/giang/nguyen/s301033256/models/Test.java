@@ -1,7 +1,12 @@
 package giang.nguyen.s301033256.models;
 
 import androidx.annotation.NonNull;
-
+/**
+ * Giang Nguyen
+ * Student# 301033256
+ * COMP304 002
+ * Professor: Haki Sharifi
+ * */
 public class Test {
     private long id;
     private long patient_id;

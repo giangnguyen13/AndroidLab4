@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    /**-->
+    <!--    * Giang Nguyen-->
+    <!--    * Student# 301033256-->
+    <!--    * COMP304 002-->
+    <!--    * Professor: Haki Sharifi-->
+    <!--    * */-->
     <string name="app_name">GiangLab4</string>
     <string name="add_patient">Ajouter un patient</string>
     <string name="add_test">Ajouter un test</string>

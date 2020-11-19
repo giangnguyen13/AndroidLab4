@@ -11,7 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * Giang Nguyen
+ * Student# 301033256
+ * COMP304 002
+ * Professor: Haki Sharifi
+ * */
 public class GiangActivity extends AppCompatActivity {
 
     @Override

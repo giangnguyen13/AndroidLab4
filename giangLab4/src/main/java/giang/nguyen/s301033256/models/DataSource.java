@@ -8,7 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Giang Nguyen
+ * Student# 301033256
+ * COMP304 002
+ * Professor: Haki Sharifi
+ * */
 public class DataSource {
     // Database fields
     private SQLiteDatabase database;

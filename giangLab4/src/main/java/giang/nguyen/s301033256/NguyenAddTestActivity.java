@@ -29,7 +29,12 @@ import java.util.List;
 import giang.nguyen.s301033256.models.DataSource;
 import giang.nguyen.s301033256.models.Patient;
 import giang.nguyen.s301033256.models.Test;
-
+/**
+ * Giang Nguyen
+ * Student# 301033256
+ * COMP304 002
+ * Professor: Haki Sharifi
+ * */
 public class NguyenAddTestActivity extends AppCompatActivity {
     private DataSource datasource;
     private RadioButton radioButton;
