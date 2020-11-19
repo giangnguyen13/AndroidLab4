@@ -9,11 +9,16 @@
         android:roundIcon="@drawable/uht_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NguyenViewPatientsActivity"></activity>
-        <activity android:name=".NguyenViewTestActivity" />
-        <activity android:name=".NguyenPatientSearchActivity" />
-        <activity android:name=".NguyenAddTestActivity" />
-        <activity android:name=".NguyenAddPatientActivity" />
+        <activity android:name=".NguyenViewPatientsActivity"
+            android:parentActivityName="giang.nguyen.s301033256.GiangActivity"/>
+        <activity android:name=".NguyenViewTestActivity"
+            android:parentActivityName="giang.nguyen.s301033256.NguyenPatientSearchActivity"/>
+        <activity android:name=".NguyenPatientSearchActivity"
+            android:parentActivityName="giang.nguyen.s301033256.GiangActivity"/>
+        <activity android:name=".NguyenAddTestActivity"
+            android:parentActivityName="giang.nguyen.s301033256.GiangActivity"/>
+        <activity android:name=".NguyenAddPatientActivity"
+            android:parentActivityName="giang.nguyen.s301033256.GiangActivity"/>
         <activity android:name=".GiangActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

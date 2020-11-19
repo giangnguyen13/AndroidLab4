@@ -1,6 +1,7 @@
 package giang.nguyen.s301033256;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -133,6 +134,9 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), NguyenPatientSearchActivity.class);
                 startActivity(startIntent);
                 return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -164,6 +168,7 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), NguyenViewTestActivity.class);
+                startIntent.putExtra("patientID", String.format("%d",patient.getId()));
                 startActivity(startIntent);
             }
         });
