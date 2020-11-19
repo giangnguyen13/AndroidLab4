@@ -16,7 +16,7 @@
     <string name="select_patient">Select Patient</string>
     <string name="new_test">New Test</string>
     <string name="new_patient">New Patient</string>
-    <string name="all_patients">All Patients</string>
+    <string name="all_patients">View All Patients</string>
     <string name="my_patients">My Patients</string>
     <string name="first_name_label">First Name</string>
     <string name="first_name_hint">Enter first name</string>

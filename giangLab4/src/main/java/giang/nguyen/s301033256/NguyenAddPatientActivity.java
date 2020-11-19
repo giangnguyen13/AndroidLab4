@@ -88,7 +88,7 @@ public class NguyenAddPatientActivity extends AppCompatActivity {
                     }else{
                         try{
                             newPatient = datasource.createPatient(firstName,lastName,department,gender);
-                            Intent startIntent = new Intent(getApplicationContext(), GiangActivity.class);
+                            Intent startIntent = new Intent(getApplicationContext(), NguyenViewPatientsActivity.class);
                             startActivity(startIntent);
                         }catch (Exception e){
                             Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();

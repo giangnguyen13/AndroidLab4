@@ -2,6 +2,8 @@ package giang.nguyen.s301033256;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -98,10 +100,30 @@ public class NguyenPatientSearchActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // TODO Auto-generated method stub
-        // do your stuff  here
-        super.onBackPressed();
+        AlertDialog.Builder builder;
         //Toast.makeText(getApplicationContext(),"BACK BTN CLICK",Toast.LENGTH_SHORT).show();
+        builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit.?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                        System.exit(0);
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Quit Application");
+        alert.show();
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

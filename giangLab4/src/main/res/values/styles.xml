@@ -17,6 +17,8 @@
     <style name="btn_info" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:background">@color/info</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/mediun_text</item>
+        <item name="fontFamily">@font/merriweather</item>
     </style>
 
     <style name="btn_danger" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -27,6 +29,8 @@
     <style name="btn_success" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:background">@color/success</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/mediun_text</item>
+        <item name="fontFamily">@font/merriweather</item>
     </style>
 
     <style name="btn_secondary" parent="Theme.AppCompat.Light.DarkActionBar">

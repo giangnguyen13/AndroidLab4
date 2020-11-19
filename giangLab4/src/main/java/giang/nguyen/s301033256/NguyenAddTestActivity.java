@@ -1,6 +1,5 @@
 package giang.nguyen.s301033256;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -8,7 +7,6 @@ import android.app.DatePickerDialog;
 import java.util.Calendar;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -19,7 +17,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -114,7 +111,7 @@ public class NguyenAddTestActivity extends AppCompatActivity {
 
                 try{
                     newTest = datasource.createTest(patient.getId(),bloodPressure,respiratory,bloodOxygen,testDate,heartBeatRate,covid);
-                    Intent startIntent = new Intent(getApplicationContext(), GiangActivity.class);
+                    Intent startIntent = new Intent(getApplicationContext(), NguyenViewPatientsActivity.class);
                     startActivity(startIntent);
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();

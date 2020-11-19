@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/uht_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NguyenViewTestActivity"></activity>
+        <activity android:name=".NguyenViewPatientsActivity"></activity>
+        <activity android:name=".NguyenViewTestActivity" />
         <activity android:name=".NguyenPatientSearchActivity" />
         <activity android:name=".NguyenAddTestActivity" />
         <activity android:name=".NguyenAddPatientActivity" />
